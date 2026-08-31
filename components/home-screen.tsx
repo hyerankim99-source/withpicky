@@ -42,10 +42,10 @@ export function HomeScreen({ onOpenChat }: { onOpenChat: (seed?: string) => void
           </div>
         </div>
 
-        <div className="mb-[22px] rounded-[20px] border border-picki-accent-soft bg-gradient-to-br from-picki-accent-soft to-white px-4 pb-3.5 pt-4">
+        <div className="relative mb-[22px] overflow-hidden rounded-[20px] border border-picki-accent-soft bg-gradient-to-br from-picki-accent-soft to-white px-4 pb-3.5 pt-4">
           <div className="mb-2.5 flex items-center gap-2.5">
-            <div className="flex h-[34px] w-[34px] flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#f2c6da] to-[#d9c6ef] font-serif text-[13px] text-picki-accent-ink">
-              픽
+            <div className="relative h-[34px] w-[34px] flex-shrink-0 overflow-hidden rounded-full border border-white bg-picki-accent-soft">
+              <Image src="/picky/picky-profile.png" alt="픽키" fill sizes="34px" className="object-cover" />
             </div>
             <div>
               <div className="text-[12.5px] font-bold">픽키</div>
@@ -55,19 +55,26 @@ export function HomeScreen({ onOpenChat }: { onOpenChat: (seed?: string) => void
               </div>
             </div>
           </div>
-          <p className="mb-3 font-serif text-[15.5px] leading-[1.55]">
+          <p className="mb-3 max-w-[62%] font-serif text-[15.5px] leading-[1.55]">
             오늘은 어떤 제품을 찾고 있어? 😊
           </p>
           <button
             type="button"
             onClick={() => onOpenChat()}
-            className="flex w-full items-center justify-between gap-2 rounded-full border border-picki-line bg-white py-2.5 pl-4 pr-2 text-left"
+            className="relative z-10 flex w-full items-center justify-between gap-2 rounded-full border border-picki-line bg-white py-2.5 pl-4 pr-2 text-left"
           >
             <span className="text-[12.5px] text-picki-sub">예: 가벼운 크로스백 추천해줘</span>
             <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-picki-accent">
               <ArrowUp className="h-3.5 w-3.5 text-picki-accent-ink" strokeWidth={2.2} />
             </span>
           </button>
+          <Image
+            src="/picky/picky-main.png"
+            alt="쇼핑하는 픽키 캐릭터"
+            width={150}
+            height={200}
+            className="pointer-events-none absolute -right-3 top-6 z-0 h-[128px] w-auto drop-shadow-sm"
+          />
         </div>
 
         <div className="mb-0.5 font-serif text-[16.5px] font-bold">너를 위한 픽</div>

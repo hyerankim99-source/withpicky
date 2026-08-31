@@ -147,8 +147,8 @@ export function ChatScreen({ onBack, seed }: { onBack: () => void; seed?: string
         <button type="button" onClick={onBack} aria-label="뒤로 가기" className="pl-2">
           <ChevronLeft className="h-5 w-5 text-picki-ink" strokeWidth={1.8} />
         </button>
-        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-[#f2c6da] to-[#d9c6ef] font-serif text-[14px] text-picki-accent-ink">
-          픽
+        <div className="relative h-9 w-9 overflow-hidden rounded-full border border-picki-line bg-picki-accent-soft">
+          <Image src="/picky/picky-profile.png" alt="픽키" fill sizes="36px" className="object-cover" />
         </div>
         <div>
           <div className="text-[14px] font-bold leading-tight">픽키</div>
