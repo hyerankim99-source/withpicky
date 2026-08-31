@@ -40,7 +40,7 @@ export function OnboardingScreen({
             priority
             className="pointer-events-none absolute -right-2 -top-1 h-[132px] w-auto drop-shadow-[0_10px_18px_rgba(217,140,168,0.28)]"
           />
-          <h2 className="mb-1.5 max-w-[64%] text-balance font-serif text-[23px] leading-[1.5]">
+          <h2 className="mb-1.5 max-w-[72%] break-keep text-balance font-serif text-[23px] leading-[1.5]">
             안녕, 나는 픽키야.
             <br />
             어떤 스타일을 좋아해?
