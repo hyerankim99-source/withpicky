@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { Search, ShoppingBag, Home, Heart, User, Info, ArrowUp } from 'lucide-react'
+import { Search, ShoppingBag, Home, Heart, User, ArrowUp } from 'lucide-react'
 import { products, formatPrice } from '@/lib/picki-data'
 
 function TabBar() {
@@ -99,9 +99,14 @@ export function HomeScreen({ onOpenChat }: { onOpenChat: (seed?: string) => void
                 <p className="mb-2 text-[13px] font-extrabold tabular-nums">
                   {formatPrice(p.price)}
                 </p>
-                <div className="flex items-start gap-1.5 rounded-lg bg-picki-green-soft px-2 py-1.5 text-[10.5px] font-semibold leading-snug text-picki-green">
-                  <Info className="mt-px h-2.5 w-2.5 flex-shrink-0" strokeWidth={2.4} />
-                  {p.reason}
+                <div className="flex items-end gap-1.5">
+                  <span className="relative h-6 w-6 flex-shrink-0 overflow-hidden rounded-full border border-picki-line bg-picki-accent-soft">
+                    <Image src="/picky/picky-profile.png" alt="픽키" fill sizes="24px" className="object-cover" />
+                  </span>
+                  <div className="relative rounded-xl rounded-bl-sm bg-picki-accent-soft px-2 py-1.5 text-[10.5px] font-semibold leading-snug text-picki-accent-ink">
+                    <span className="absolute -left-[5px] bottom-1.5 h-0 w-0 border-y-[5px] border-r-[6px] border-y-transparent border-r-picki-accent-soft" />
+                    {p.reason}
+                  </div>
                 </div>
               </div>
             </button>

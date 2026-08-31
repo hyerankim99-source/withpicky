@@ -83,7 +83,7 @@ export function OnboardingScreen({
           disabled={!canStart}
           className="w-full rounded-2xl bg-picki-accent py-[15px] text-[14.5px] font-bold tracking-tight text-picki-accent-ink shadow-[0_10px_22px_-8px_rgba(217,140,168,0.55)] transition-opacity disabled:opacity-40 disabled:shadow-none"
         >
-          픽키 시작하기
+          픽키와 함께 쇼핑해요
         </button>
       </div>
     </>
