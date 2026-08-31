@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { Check } from 'lucide-react'
 import { onboardingKeywords } from '@/lib/picki-data'
 
@@ -30,17 +31,24 @@ export function OnboardingScreen({
           </button>
         </div>
 
-        <div className="mb-3.5 mt-[18px] flex h-[52px] w-[52px] items-center justify-center rounded-full bg-gradient-to-br from-[#f2c6da] to-[#d9c6ef] font-serif text-[19px] text-picki-accent-ink">
-          픽
+        <div className="relative mt-[18px]">
+          <Image
+            src="/picky/picky-main-cutout.png"
+            alt="쇼핑하는 픽키 캐릭터"
+            width={200}
+            height={266}
+            priority
+            className="pointer-events-none absolute -right-2 -top-1 h-[132px] w-auto drop-shadow-[0_10px_18px_rgba(217,140,168,0.28)]"
+          />
+          <h2 className="mb-1.5 max-w-[64%] text-balance font-serif text-[23px] leading-[1.5]">
+            안녕, 나는 픽키야.
+            <br />
+            어떤 스타일을 좋아해?
+          </h2>
+          <p className="mb-[22px] max-w-[70%] text-[13px] leading-relaxed text-picki-sub">
+            골라준 키워드로 너에게 맞는 걸 먼저 찾아볼게. 3개 이상 골라줘.
+          </p>
         </div>
-        <h2 className="mb-1.5 text-balance font-serif text-[23px] leading-[1.5]">
-          안녕, 나는 픽키야.
-          <br />
-          어떤 스타일을 좋아해?
-        </h2>
-        <p className="mb-[22px] text-[13px] leading-relaxed text-picki-sub">
-          골라준 키워드로 너에게 맞는 걸 먼저 찾아볼게. 3개 이상 골라줘.
-        </p>
 
         <div className="mb-2.5 text-[12px] font-bold text-picki-accent-strong">
           {count}개 선택됨 · 최소 {MIN_SELECT}개
