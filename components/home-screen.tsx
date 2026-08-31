@@ -35,14 +35,16 @@ export function HomeScreen({ onOpenChat }: { onOpenChat: (seed?: string) => void
     <>
       <div className="flex-1 overflow-y-auto px-[18px] pb-2 pt-1.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         <div className="flex items-center justify-between px-0.5 pb-3.5 pt-2">
-          <div className="font-serif text-[19px] font-bold tracking-tight">PICKI.</div>
+          <div className="font-serif text-[19px] font-bold tracking-tight">
+            <span className="text-picki-sub">with</span>PICKY
+          </div>
           <div className="flex gap-3.5 text-picki-ink">
             <Search className="h-[19px] w-[19px]" strokeWidth={1.7} />
             <ShoppingBag className="h-[19px] w-[19px]" strokeWidth={1.7} />
           </div>
         </div>
 
-        <div className="relative mb-[22px] overflow-hidden rounded-[20px] border border-picki-accent-soft bg-gradient-to-br from-picki-accent-soft to-white px-4 pb-3.5 pt-4">
+        <div className="relative mb-[22px] overflow-hidden rounded-[20px] border border-picki-accent bg-gradient-to-br from-[#fbd9e7] via-picki-accent-soft to-[#e7ddf6] px-4 pb-3.5 pt-4 shadow-[0_8px_24px_-12px_rgba(217,140,168,0.5)]">
           <div className="mb-2.5 flex items-center gap-2.5">
             <div className="relative h-[34px] w-[34px] flex-shrink-0 overflow-hidden rounded-full border border-white bg-picki-accent-soft">
               <Image src="/picky/picky-profile.png" alt="픽키" fill sizes="34px" className="object-cover" />
@@ -55,7 +57,7 @@ export function HomeScreen({ onOpenChat }: { onOpenChat: (seed?: string) => void
               </div>
             </div>
           </div>
-          <p className="mb-3 max-w-[62%] font-serif text-[15.5px] leading-[1.55]">
+          <p className="mb-3 font-serif text-[15.5px] leading-[1.55]">
             오늘은 어떤 제품을 찾고 있어? 😊
           </p>
           <button
@@ -68,13 +70,6 @@ export function HomeScreen({ onOpenChat }: { onOpenChat: (seed?: string) => void
               <ArrowUp className="h-3.5 w-3.5 text-picki-accent-ink" strokeWidth={2.2} />
             </span>
           </button>
-          <Image
-            src="/picky/picky-main.png"
-            alt="쇼핑하는 픽키 캐릭터"
-            width={150}
-            height={200}
-            className="pointer-events-none absolute -right-3 top-6 z-0 h-[128px] w-auto drop-shadow-sm"
-          />
         </div>
 
         <div className="mb-0.5 font-serif text-[16.5px] font-bold">너를 위한 픽</div>

@@ -37,7 +37,7 @@ export default function Page() {
         <header className="mb-8 text-center">
           <div className="mb-3 inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.14em] text-picki-accent-strong">
             <span className="h-px w-4 bg-picki-accent-strong" />
-            PICKI · AI SALES AGENT
+            withPICKY · AI SALES AGENT
           </div>
           <h1 className="text-balance font-serif text-[26px] leading-snug">
             망설임을 설득으로 바꾸는 픽키
