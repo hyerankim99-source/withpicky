@@ -2,21 +2,21 @@
 
 import Image from 'next/image'
 import { Check } from 'lucide-react'
-import { onboardingStyleKeywords } from '@/lib/picki-data'
+import { onboardingCategoryKeywords } from '@/lib/picki-data'
 
 const MIN_SELECT = 3
 
-export function OnboardingScreen({
+export function OnboardingScreen2({
   selected,
   onToggle,
-  onNext,
+  onStart,
 }: {
   selected: string[]
   onToggle: (keyword: string) => void
-  onNext: () => void
+  onStart: () => void
 }) {
   const count = selected.length
-  const canGoNext = count >= MIN_SELECT
+  const canStart = count >= MIN_SELECT
 
   return (
     <>
@@ -24,7 +24,7 @@ export function OnboardingScreen({
         <div className="flex items-center justify-between px-0.5 pb-1.5 pt-2.5">
           <div className="flex gap-1.5">
             <span className="h-1 w-[22px] rounded-full bg-picki-accent-strong" />
-            <span className="h-1 w-4 rounded-full bg-picki-line" />
+            <span className="h-1 w-[22px] rounded-full bg-picki-accent-strong" />
           </div>
           <button className="text-[12.5px] font-semibold text-picki-sub" type="button">
             건너뛰기
@@ -41,12 +41,12 @@ export function OnboardingScreen({
             className="pointer-events-none absolute -right-2 -top-1 h-[132px] w-auto drop-shadow-[0_10px_18px_rgba(217,140,168,0.28)]"
           />
           <h2 className="mb-1.5 max-w-[64%] text-balance font-serif text-[23px] leading-[1.5]">
-            안녕, 나는 픽키야.
+            어떤 제품들에
             <br />
-            어떤 스타일을 좋아해?
+            관심이 많아?
           </h2>
           <p className="mb-[22px] max-w-[70%] text-[13px] leading-relaxed text-picki-sub">
-            골라준 키워드로 너에게 맞는 걸 먼저 찾아볼게. 3개 이상 골라줘.
+            관심 있는 카테고리를 골라주면 더 정확하게 추천해줄게. 3개 이상 골라줘.
           </p>
         </div>
 
@@ -54,7 +54,7 @@ export function OnboardingScreen({
           {count}개 선택됨 · 최소 {MIN_SELECT}개
         </div>
         <div className="flex flex-wrap gap-2">
-          {onboardingStyleKeywords.map((keyword) => {
+          {onboardingCategoryKeywords.map((keyword) => {
             const isOn = selected.includes(keyword)
             return (
               <button
@@ -79,11 +79,11 @@ export function OnboardingScreen({
       <div className="flex-shrink-0 px-[18px] pb-[22px] pt-3.5">
         <button
           type="button"
-          onClick={onNext}
-          disabled={!canGoNext}
-          className="w-full rounded-2xl border-2 border-picki-accent-strong bg-white py-[15px] text-[14.5px] font-bold tracking-tight text-picki-accent-strong transition-opacity disabled:opacity-40"
+          onClick={onStart}
+          disabled={!canStart}
+          className="w-full rounded-2xl bg-picki-accent py-[15px] text-[14.5px] font-bold tracking-tight text-picki-accent-ink shadow-[0_10px_22px_-8px_rgba(217,140,168,0.55)] transition-opacity disabled:opacity-40 disabled:shadow-none"
         >
-          다음
+          픽키와 함께 쇼핑해요
         </button>
       </div>
     </>

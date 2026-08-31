@@ -37,19 +37,30 @@ export const products: Product[] = [
   },
 ]
 
-export const onboardingKeywords = [
+// 온보딩 1단계 — 스타일/느낌 위주 키워드
+export const onboardingStyleKeywords = [
   '가벼운',
   '미니멀',
-  '데일리백',
-  '오피스룩',
   '러블리',
-  '수납 많은',
+  '캐주얼',
+  '귀여운',
   '스트릿',
   '빈티지',
   '하이엔드',
   '가성비',
-  '노트북 수납',
-  '캐주얼',
+]
+
+// 온보딩 2단계 — 관심 있는 제품 카테고리 키워드
+export const onboardingCategoryKeywords = [
+  '데일리백',
+  '오피스룩',
+  '스카프',
+  '크로스백',
+  '토트백',
+  '니트',
+  '원피스',
+  '액세서리',
+  '슬랙스',
 ]
 
 export const formatPrice = (n: number) => `${n.toLocaleString('ko-KR')}원`

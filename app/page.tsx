@@ -3,24 +3,32 @@
 import { useState } from 'react'
 import { PhoneFrame } from '@/components/phone-frame'
 import { OnboardingScreen } from '@/components/onboarding-screen'
+import { OnboardingScreen2 } from '@/components/onboarding-screen-2'
 import { HomeScreen } from '@/components/home-screen'
 import { ChatScreen } from '@/components/chat-screen'
 
-type Step = 'onboarding' | 'home' | 'chat'
+type Step = 'onboarding' | 'onboarding2' | 'home' | 'chat'
 
 const steps: { key: Step; label: string; sub: string }[] = [
-  { key: 'onboarding', label: '온보딩', sub: '관심 키워드 선택' },
+  { key: 'onboarding', label: '온보딩 1', sub: '스타일/느낌 키워드 선택' },
+  { key: 'onboarding2', label: '온보딩 2', sub: '관심 제품 키워드 선택' },
   { key: 'home', label: '메인 홈', sub: '픽키 대화 + 추천' },
   { key: 'chat', label: '픽키 채팅', sub: '니즈 파악 · 망설임 대응' },
 ]
 
 export default function Page() {
   const [step, setStep] = useState<Step>('onboarding')
-  const [selected, setSelected] = useState<string[]>(['가벼운', '데일리백', '수납 많은'])
+  const [selectedStyle, setSelectedStyle] = useState<string[]>(['가벼운', '캐주얼', '귀여운'])
+  const [selectedCategory, setSelectedCategory] = useState<string[]>(['데일리백', '오피스룩', '스카프'])
   const [chatSeed, setChatSeed] = useState<string | undefined>(undefined)
 
-  const toggleKeyword = (keyword: string) =>
-    setSelected((prev) =>
+  const toggleStyleKeyword = (keyword: string) =>
+    setSelectedStyle((prev) =>
+      prev.includes(keyword) ? prev.filter((k) => k !== keyword) : [...prev, keyword],
+    )
+
+  const toggleCategoryKeyword = (keyword: string) =>
+    setSelectedCategory((prev) =>
       prev.includes(keyword) ? prev.filter((k) => k !== keyword) : [...prev, keyword],
     )
 
@@ -30,6 +38,8 @@ export default function Page() {
   }
 
   const activeIndex = steps.findIndex((s) => s.key === step)
+
+  const statusTime = step === 'chat' ? '9:42' : step === 'onboarding2' ? '9:41' : '9:41'
 
   return (
     <main className="min-h-dvh bg-[#fcf7fa] px-5 py-10 text-picki-ink">
@@ -45,10 +55,18 @@ export default function Page() {
           <p className="mx-auto mt-2 max-w-xs text-pretty text-[13.5px] leading-relaxed text-picki-sub">
             온보딩부터 메인 홈, 채팅까지 이어지는 신규 가입자 화면 흐름을 직접 눌러보세요.
           </p>
+          <a
+            href="/plan.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-picki-line bg-white px-3.5 py-[7px] text-[12px] font-semibold text-picki-accent-strong shadow-[0_4px_14px_-8px_rgba(217,140,168,0.5)] transition-opacity hover:opacity-80"
+          >
+            📄 서비스 기획서 보기
+          </a>
         </header>
 
         {/* Step indicator / navigation */}
-        <nav className="mb-6 flex items-center justify-center gap-1.5">
+        <nav className="mb-6 flex flex-wrap items-center justify-center gap-1.5">
           {steps.map((s, i) => {
             const isActive = s.key === step
             const isDone = i < activeIndex
@@ -82,11 +100,18 @@ export default function Page() {
         </nav>
 
         <div className="flex justify-center">
-          <PhoneFrame time={step === 'chat' ? '9:42' : '9:41'}>
+          <PhoneFrame time={statusTime}>
             {step === 'onboarding' && (
               <OnboardingScreen
-                selected={selected}
-                onToggle={toggleKeyword}
+                selected={selectedStyle}
+                onToggle={toggleStyleKeyword}
+                onNext={() => setStep('onboarding2')}
+              />
+            )}
+            {step === 'onboarding2' && (
+              <OnboardingScreen2
+                selected={selectedCategory}
+                onToggle={toggleCategoryKeyword}
                 onStart={() => setStep('home')}
               />
             )}
